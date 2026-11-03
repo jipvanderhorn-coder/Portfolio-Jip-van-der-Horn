@@ -163,7 +163,7 @@ header {
 
 /* MARK: zweven jip */
 
-@keyframes zweefjip {
+/* @keyframes zweefjip {
   from {
     transform: translateX(0);
     text-shadow: 0 0 0 var(--pink);
@@ -175,7 +175,7 @@ header {
       4px 4px 1px var(--pink),
       6px 6px 1px rgb(237 22 133 / 25%);
   }
-}
+} */
 
 /* MARK: scrollen jip */
 
@@ -206,7 +206,7 @@ header {
 }
 
 /* MARK: zweven jip */
-
+/* 
 @keyframes zweefhorn {
   from {
     transform: translateX(-0.25em);
@@ -219,7 +219,7 @@ header {
       -4px -4px 1px var(--pink),
       -6px -6px 2px rgb(237 22 133 / 25%);
   }
-}
+} */
 
 /* MARK: scrollen jip */
 
