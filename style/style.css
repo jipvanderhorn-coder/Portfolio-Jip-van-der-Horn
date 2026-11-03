@@ -156,6 +156,11 @@ header {
     0vh 90vh;
 }
 
+.intro h1 span:nth-child(1),
+.intro h1 span:nth-child(3) {
+  will-change: translate;
+}
+
 /* MARK: zweven jip */
 
 @keyframes zweefjip {
