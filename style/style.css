@@ -1,0 +1,233 @@
+/* MARK: fonts */
+
+@font-face {
+  font-family: seraph;
+  src: url(/assets/fonts/SeraphsVF.woff2);
+}
+
+@font-face {
+  font-family: bebas;
+  src: url(/assets/fonts/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+  font-family: octarine;
+  src: url(/assets/fonts/Octarine-Bold.otf);
+}
+
+@font-face {
+  font-family: octarinelight;
+  src: url(/assets/fonts/Octarine-Light.otf);
+}
+
+/* MARK: kleuren */
+
+:root {
+  --black: #171717;
+  --pink: #ed1685;
+  --white: #f0eee8;
+
+  --step--2: clamp(0.5252rem, 0.7509rem + -0.2507cqi, 0.6944rem);
+  --step--1: clamp(0.8333rem, 0.8278rem + 0.0244cqi, 0.8498rem);
+  --step-0: clamp(0.872rem, 0.695rem + 2.8556cqi, 1.175rem);
+  --step-1: clamp(1.2rem, 0.8584rem + 4.5181cqi, 2.2248rem);
+  --step-2: clamp(1.44rem, 0.7201rem + 3.1995cqi, 3.5996rem);
+  --step-3: clamp(1.728rem, 0.3626rem + 6.0685cqi, 5.8242rem);
+  --step-4: clamp(2.0736rem, -0.3764rem + 10.8889cqi, 9.4236rem);
+  --step-5: clamp(3.4883rem, -1.2647rem + 28.9023cqi, 15.2474rem);
+}
+
+/* MARK: basis */
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* MARK: beginscherm */
+
+.beginscherm {
+  position: relative;
+  min-height: 100svh;
+  padding: 1.25em 1.25em 3em;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+/* MARK: header */
+
+header {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: octarinelight, sans-serif;
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  gap: 2em;
+}
+
+/* MARK: intro */
+
+.intro {
+  grid-column: 1 / -1;
+  align-self: center;
+}
+
+.intro h1 {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro h1 span {
+  display: block;
+}
+
+/* MARK: ontdek */
+
+.ontdek {
+  grid-column: 1 / -1;
+  justify-self: center;
+  align-self: end;
+
+  color: var(--pink);
+  font-family: octarine, sans-serif;
+  font-size: 0.7rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* MARK: titel */
+
+.intro h1 {
+  font-family: bebas, sans-serif;
+  font-size: var(--step-5);
+  font-weight: normal;
+  line-height: 0.78;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.intro h1 span:nth-child(1) {
+  align-self: flex-start;
+}
+
+.intro h1 span:nth-child(2) {
+  align-self: center;
+}
+
+.intro h1 span:nth-child(3) {
+  align-self: flex-end;
+}
+
+/* MARK: info */
+
+.info {
+  font-size: var(--step-0);
+}
+
+/* MARK: animaties jip */
+
+.intro h1 span:nth-child(1) {
+  animation-name: zweefjip, scrolljip;
+  animation-duration: 8.6s, 1s;
+  animation-timing-function: ease-in-out, linear;
+  animation-iteration-count: infinite, 1;
+  animation-direction: alternate, normal;
+  animation-fill-mode: none, both;
+
+  animation-timeline: auto, scroll(root);
+  animation-range:
+    normal,
+    0vh 90vh;
+}
+
+/* MARK: zweven jip */
+
+@keyframes zweefjip {
+  from {
+    transform: translateX(0);
+    text-shadow: 0 0 0 var(--pink);
+  }
+
+  to {
+    transform: translateX(0.25em);
+    text-shadow:
+      4px 4px 1px var(--pink),
+      6px 6px 1px rgb(237 22 133 / 25%);
+  }
+}
+
+/* MARK: scrollen jip */
+
+@keyframes scrolljip {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: 2em 0;
+  }
+}
+
+/* MARK: animaties horn */
+
+.intro h1 span:nth-child(3) {
+  animation-name: zweefhorn, scrollhorn;
+  animation-duration: 6.3s, 1s;
+  animation-timing-function: ease-in-out, linear;
+  animation-iteration-count: infinite, 1;
+  animation-direction: alternate, normal;
+  animation-fill-mode: none, both;
+
+  animation-timeline: auto, scroll(root);
+  animation-range:
+    normal,
+    0vh 50vh;
+}
+
+/* MARK: zweven jip */
+
+@keyframes zweefhorn {
+  from {
+    transform: translateX(-0.25em);
+    text-shadow: 0 0 0 var(--pink);
+  }
+
+  to {
+    transform: translateX(0);
+    text-shadow:
+      -4px -4px 1px var(--pink),
+      -6px -6px 1px rgb(237 22 133 / 25%);
+  }
+}
+
+/* MARK: scrollen jip */
+
+@keyframes scrollhorn {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: -2em 0;
+  }
+}
+
+html {
+  margin-bottom: 20em;
+}
