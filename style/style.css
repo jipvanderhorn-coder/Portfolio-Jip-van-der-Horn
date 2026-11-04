@@ -124,6 +124,7 @@ header {
 
 .intro h1 span:nth-child(1) {
   align-self: flex-start;
+  text-shadow: 4px 4px 1px var(--pink);
 }
 
 .intro h1 span:nth-child(2) {
@@ -132,6 +133,7 @@ header {
 
 .intro h1 span:nth-child(3) {
   align-self: flex-end;
+  text-shadow: -4px -4px 1px var(--pink);
 }
 
 /* MARK: info */
@@ -161,23 +163,15 @@ header {
   will-change: translate;
 }
 
-/* MARK: zweven jip */
-
-/* @keyframes zweefjip {
+@keyframes zweefjip {
   from {
     transform: translateX(0);
-    text-shadow: 0 0 0 var(--pink);
   }
 
   to {
     transform: translateX(0.25em);
-    text-shadow:
-      4px 4px 1px var(--pink),
-      6px 6px 1px rgb(237 22 133 / 25%);
   }
-} */
-
-/* MARK: scrollen jip */
+}
 
 @keyframes scrolljip {
   from {
@@ -186,6 +180,26 @@ header {
 
   to {
     translate: 2em 0;
+  }
+}
+
+/* MARK: animaties van der */
+
+.intro h1 span:nth-child(2) {
+  animation-name: zweefvd;
+  animation-duration: 15s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes zweefvd {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: -12deg;
   }
 }
 
@@ -205,23 +219,15 @@ header {
     0vh 50vh;
 }
 
-/* MARK: zweven jip */
-/* 
 @keyframes zweefhorn {
   from {
     transform: translateX(-0.25em);
-    text-shadow: 0 0 0 var(--pink);
   }
 
   to {
     transform: translateX(0);
-    text-shadow:
-      -4px -4px 1px var(--pink),
-      -6px -6px 2px rgb(237 22 133 / 25%);
   }
-} */
-
-/* MARK: scrollen jip */
+}
 
 @keyframes scrollhorn {
   from {
