@@ -129,7 +129,7 @@ header {
 
 .intro h1 span:nth-child(1) {
   animation-name: zweefjip, scrolljip;
-  animation-duration: 8.6s, 1s;
+  animation-duration: 7.6s, 1s;
   animation-timing-function: ease-in-out, linear;
   animation-iteration-count: infinite, 1;
   animation-direction: alternate, normal;
@@ -170,7 +170,7 @@ header {
 
 .intro h1 span:nth-child(2) {
   animation-name: zweefvd;
-  animation-duration: 15s;
+  animation-duration: 10s;
   animation-timing-function: ease-in-out;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -178,11 +178,11 @@ header {
 
 @keyframes zweefvd {
   from {
-    rotate: 0deg;
+    rotate: 2deg;
   }
 
   to {
-    rotate: -12deg;
+    rotate: -14deg;
   }
 }
 
@@ -190,7 +190,7 @@ header {
 
 .intro h1 span:nth-child(3) {
   animation-name: zweefhorn, scrollhorn;
-  animation-duration: 6.3s, 1s;
+  animation-duration: 5.8s, 1s;
   animation-timing-function: ease-in-out, linear;
   animation-iteration-count: infinite, 1;
   animation-direction: alternate, normal;
@@ -414,26 +414,32 @@ header {
 
 .project-grid {
   display: grid;
+  width: fit-content;
   grid-template-columns: 1fr;
   gap: 5em;
 }
 
+/* MARK: project */
+
 .project {
+  display: block;
   width: 100%;
   min-width: 0;
+
+  color: var(--black);
+  text-decoration: none;
+
+  transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project:hover {
+  transform: scale(1.1);
 }
 
 /* MARK: project info */
 
 .project-info {
   margin-bottom: 0.8em;
-}
-
-.project-info span {
-  display: block;
-  font-family: octarinelight, sans-serif;
-  font-size: var(--step--1);
-  letter-spacing: 0.1em;
 }
 
 .project-info h3 {
@@ -455,22 +461,43 @@ header {
 /* MARK: project images */
 
 .project-image {
+  position: relative;
   display: block;
   width: fit-content;
   max-width: 100%;
   overflow: hidden;
-  transition: 0.5s ease;
 }
 
 .project-image img {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  height: auto;
   max-height: clamp(16em, 35vw, 32em);
   object-fit: contain;
 }
 
-.project-image:hover {
-  transform: scale(1.05);
+.project-image::after {
+  content: "BEKIJK ➚";
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+
+  background: rgb(237 22 133 / 50%);
+  color: var(--black);
+
+  font-family: bebas, sans-serif;
+  font-size: clamp(2rem, 7vw, 6rem);
+  letter-spacing: 0.03em;
+
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project:hover .project-image::after,
+.project:focus-visible .project-image::after {
+  clip-path: circle(150% at 50% 50%);
 }
 
 /* MARK: grotere schermen */
@@ -490,43 +517,5 @@ header {
 
   .project:nth-child(even) {
     justify-self: start;
-  }
-
-  .project-large {
-    width: 75%;
-  }
-
-  .project-small {
-    width: 55%;
-  }
-
-  .project-wide {
-    width: 70%;
-  }
-
-  .project-experiment {
-    width: 55%;
-  }
-}
-
-@media (width > 75em) {
-  .project {
-    width: 60%;
-  }
-
-  .project-large {
-    width: 70%;
-  }
-
-  .project-small {
-    width: 48%;
-  }
-
-  .project-wide {
-    width: 65%;
-  }
-
-  .project-experiment {
-    width: 50%;
   }
 }
