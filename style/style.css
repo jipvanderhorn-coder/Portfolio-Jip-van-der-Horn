@@ -51,6 +51,12 @@ html {
   margin-bottom: 200em;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* MARK: beginscherm */
 
 .beginscherm {
@@ -290,11 +296,17 @@ header {
   align-items: center;
   justify-content: center;
 
-  width: min(100%, 20em);
-  height: 3.2em;
+  width: min(100%, 12em);
+  height: 2.5em;
   margin: 0.5em;
   background: var(--pink);
   color: var(--black);
+
+  @media (max-width: 650px) {
+    width: 100%;
+    height: 3.2em;
+    margin: 0.5em 0;
+  }
 
   font-family: bebas, sans-serif;
   font-size: var(--step-2);
@@ -359,4 +371,162 @@ header {
 
 .ontdek:focus::before {
   background: var(--orange);
+}
+
+/* MARK: work */
+
+.work {
+  background: var(--white);
+  color: var(--black);
+  padding: clamp(1.5em, 5vw, 5em) clamp(1.25em, 7vw, 7em) 8em;
+}
+
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: octarinelight, sans-serif;
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.work-header p {
+  margin: 0;
+}
+
+.work h2 {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+  margin: 0.8em 0 1.2em;
+  font-family: bebas, sans-serif;
+  font-size: clamp(3rem, 12vw, 12rem);
+  line-height: 0.8;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.work h2 span {
+  color: var(--pink);
+}
+
+/* MARK: project grid */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5em;
+}
+
+.project {
+  width: 100%;
+  min-width: 0;
+}
+
+/* MARK: project info */
+
+.project-info {
+  margin-bottom: 0.8em;
+}
+
+.project-info span {
+  display: block;
+  font-family: octarinelight, sans-serif;
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+}
+
+.project-info h3 {
+  margin: 0.15em 0;
+  font-family: bebas, sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.project-info p {
+  margin: 0;
+  max-width: 18em;
+  font-family: octarinelight, sans-serif;
+  font-size: var(--step-0);
+  line-height: 1.5;
+}
+
+/* MARK: project images */
+
+.project-image {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.project-image img {
+  width: auto;
+  max-width: 100%;
+  max-height: clamp(16em, 35vw, 32em);
+  object-fit: contain;
+}
+
+.project-image:hover {
+  transform: scale(1.05);
+}
+
+/* MARK: grotere schermen */
+
+@media (width > 45em) {
+  .project-grid {
+    gap: clamp(7em, 13vw, 13em);
+  }
+
+  .project {
+    width: 65%;
+  }
+
+  .project:nth-child(odd) {
+    justify-self: end;
+  }
+
+  .project:nth-child(even) {
+    justify-self: start;
+  }
+
+  .project-large {
+    width: 75%;
+  }
+
+  .project-small {
+    width: 55%;
+  }
+
+  .project-wide {
+    width: 70%;
+  }
+
+  .project-experiment {
+    width: 55%;
+  }
+}
+
+@media (width > 75em) {
+  .project {
+    width: 60%;
+  }
+
+  .project-large {
+    width: 70%;
+  }
+
+  .project-small {
+    width: 48%;
+  }
+
+  .project-wide {
+    width: 65%;
+  }
+
+  .project-experiment {
+    width: 50%;
+  }
 }
