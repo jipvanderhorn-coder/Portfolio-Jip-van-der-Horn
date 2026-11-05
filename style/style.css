@@ -302,7 +302,7 @@ header {
   background: var(--pink);
   color: var(--black);
 
-  @media (max-width: 650px) {
+  @media (max-width: 45em) {
     width: 100%;
     height: 3.2em;
     margin: 0.5em 0;
@@ -378,7 +378,7 @@ header {
 .work {
   background: var(--white);
   color: var(--black);
-  padding: clamp(1.5em, 5vw, 5em) clamp(1.25em, 7vw, 7em) 8em;
+  padding: 4em 5vw 8em;
 }
 
 .work-header {
@@ -414,48 +414,77 @@ header {
 
 .project-grid {
   display: grid;
-  width: fit-content;
-  grid-template-columns: 1fr;
-  gap: 5em;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3em;
+  align-items: start;
+}
+@media (max-width: 42em) {
+  .work {
+    padding: 3em 2.5em 5em;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+}
+@media (min-width: 90em) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* MARK: project */
+/* MARK: projects */
 
 .project {
-  display: block;
-  width: 100%;
+  display: grid;
+  align-content: start;
   min-width: 0;
-
-  color: var(--black);
+  padding: 1.3em;
+  background: #292725;
+  color: var(--white);
   text-decoration: none;
-
-  transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #494542;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project:hover {
-  transform: scale(1.1);
+  transform: translateY(-0.5em);
 }
 
-/* MARK: project info */
-
 .project-info {
-  margin-bottom: 0.8em;
+  margin-bottom: 1.2em;
 }
 
 .project-info h3 {
-  margin: 0.15em 0;
-  font-family: bebas, sans-serif;
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 0.9;
+  margin: 0;
+  font-family: bebas;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  line-height: 0.85;
   text-transform: uppercase;
 }
 
+.project-info h3 span {
+  color: var(--pink);
+  font-family: octarine;
+  font-size: 0.65em;
+}
+
 .project-info p {
-  margin: 0;
-  max-width: 18em;
-  font-family: octarinelight, sans-serif;
+  max-width: 22em;
+  margin: 0.8em 0 0;
+  font-family: octarinelight;
   font-size: var(--step-0);
   line-height: 1.5;
+}
+
+.project::after {
+  content: "2026";
+  margin-top: 1em;
+  color: var(--pink);
+  font-family: bebas;
+  font-size: 1.3rem;
+  letter-spacing: 0.2em;
 }
 
 /* MARK: project images */
@@ -463,34 +492,30 @@ header {
 .project-image {
   position: relative;
   display: block;
-  width: fit-content;
-  max-width: 100%;
+  width: 100%;
+  min-width: 0;
   overflow: hidden;
 }
 
 .project-image img {
+  display: block;
   width: 100%;
   height: auto;
-  max-height: clamp(16em, 35vw, 32em);
-  object-fit: contain;
 }
 
+/* MARK: project hover */
+
 .project-image::after {
-  content: "BEKIJK ➚";
+  content: "BEKIJK ↗";
   position: absolute;
   inset: 0;
-
   display: grid;
   place-items: center;
-  pointer-events: none;
-
-  background: rgb(237 22 133 / 50%);
+  background: rgb(237 22 133 / 75%);
   color: var(--black);
-
   font-family: bebas, sans-serif;
-  font-size: clamp(2rem, 7vw, 6rem);
-  letter-spacing: 0.03em;
-
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 0.05em;
   clip-path: circle(0% at 50% 50%);
   transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -500,22 +525,18 @@ header {
   clip-path: circle(150% at 50% 50%);
 }
 
-/* MARK: grotere schermen */
+/* MARK: project grid asymmetrie */
 
-@media (width > 45em) {
-  .project-grid {
-    gap: clamp(7em, 13vw, 13em);
+@media (min-width: 45em) {
+  .project:nth-child(2) {
+    margin-top: 5em;
   }
 
-  .project {
-    width: 65%;
+  .project:nth-child(3) {
+    margin-top: 2em;
   }
 
-  .project:nth-child(odd) {
-    justify-self: end;
-  }
-
-  .project:nth-child(even) {
-    justify-self: start;
+  .project:nth-child(4) {
+    margin-top: 7em;
   }
 }
