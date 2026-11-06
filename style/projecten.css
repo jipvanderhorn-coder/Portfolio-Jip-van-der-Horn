@@ -1,5 +1,11 @@
 
-/* MARK: fonts */
+/* MARK: FONTS */
+
+@font-face {
+  font-family: seraph;
+  src: url(../assets/fonts/SeraphsVF.woff2);
+  font-weight: 100 900;
+}
 
 @font-face {
   font-family: bebas;
@@ -16,435 +22,447 @@
   src: url(../assets/fonts/Octarine-Light.otf);
 }
 
-
-/* MARK: basis */
+/* MARK: KLEUREN */
 
 :root {
   --black: #171717;
   --pink: #ed1685;
   --white: #f0eee8;
+  --orange: #e58e0b;
+  --step--1: clamp(0.75rem, 0.7rem + 0.2vw, 0.9rem);
+  --step-0: clamp(0.9rem, 0.85rem + 0.3vw, 1.1rem);
+  --step-1: clamp(1.2rem, 1rem + 1vw, 1.8rem);
+  --step-2: clamp(2rem, 1.2rem + 4vw, 5rem);
+  --step-3: clamp(3.5rem, 2rem + 9vw, 10rem);
+  --step-4: clamp(5rem, 2rem + 15vw, 16rem);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--white);
-  color: var(--black);
-  overflow-x: hidden;
-}
-
-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.project {
-  overflow: hidden;
-}
-
-
-/* MARK: algemene tekst */
-
-.label {
-  margin: 0;
-  font-family: octarinelight, sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.description,
-.intro-text,
-.reflection p {
-  max-width: 32em;
-  font-family: octarinelight, sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.section-heading h2 {
-  margin: 0.2em 0 0.6em;
-  font-family: bebas, sans-serif;
-  font-size: clamp(3.8rem, 17vw, 7rem);
-  line-height: 0.8;
-  font-weight: normal;
-  text-transform: uppercase;
-}
-
-.section-heading h2 span,
-.opening h1 span {
-  color: var(--pink);
-}
-
-
-/* MARK: opening */
-
-.opening {
-  min-height: 78svh;
-  padding: 5em 7vw 4em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-}
-
-.opening h1 {
-  margin: 0.25em 0;
-  font-family: bebas, sans-serif;
-  font-size: clamp(6rem, 25vw, 11rem);
-  font-weight: normal;
-  line-height: 0.68;
-  letter-spacing: -0.045em;
-  text-transform: uppercase;
-}
-
-.opening h1 span {
-  display: inline-block;
-  margin-left: 0.35em;
-}
-
-.intro-text {
-  max-width: 21em;
-  margin: 3em 0 0 8vw;
-}
-
-
-/* MARK: campagne */
-
-.campaign {
-  padding: 4em 7vw 6em;
-}
-
-.poster-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8em;
-  align-items: start;
-}
-
-.poster-grid img {
-  width: 100%;
-}
-
-.poster-grid img:nth-child(2) {
-  margin-top: 3em;
-}
-
-.poster-grid img:nth-child(3) {
-  margin-top: -1em;
-}
-
-.poster-grid img:nth-child(4) {
-  margin-top: 2em;
-}
-
-.campaign-description {
-  margin: 4em 0 3em auto;
-}
-
-.shop-image {
-  width: 100%;
-  margin-left: 0;
-}
-
-.shop-image img {
-  width: 100%;
-}
-
-
-/* MARK: opinieartikel */
-
-.opinion {
-  padding: 5em 7vw 6em;
-}
-
-.opinion .description {
-  margin: 2em 0 3em auto;
-}
-
-.opinion-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8em;
-  align-items: start;
-}
-
-.opinion-images img:first-child {
-  grid-column: 1 / -1;
-  width: 85%;
-}
-
-.opinion-images img:nth-child(2) {
-  margin-top: 1em;
-}
-
-.opinion-images img:nth-child(3) {
-  margin-top: 4em;
-}
-
-
-/* MARK: website */
-
-.website {
-  padding: 5em 7vw 7em;
-}
-
-.website .section-heading h2 {
-  font-size: clamp(3.5rem, 15vw, 7rem);
-}
-
-.website .description {
-  margin: 2em 0 3em 8vw;
-}
-
-.website-images {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2em;
-}
-
-.website-images img:first-child {
-  width: 90%;
-}
-
-.website-images img:last-child {
-  width: 85%;
-  margin-left: auto;
-  margin-top: -1em;
-}
-
-
-/* MARK: reflectie */
-
-.reflection {
-  padding: 5em 7vw 7em;
   background: var(--black);
   color: var(--white);
 }
 
-.reflection .label {
+img { display: block; width: 100%; height: auto; }
+
+.project-page { overflow: hidden; }
+
+.pink-dot,
+h2 span { color: var(--pink); }
+
+/* MARK: HOME LOGO */
+
+.home-logo {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.12em;
+  padding: 0.35em 0.5em;
+  background: var(--black);
+  color: var(--white);
+  border: 1px solid rgb(240 238 232 / 20%);
+  font: clamp(2rem, 4vw, 3rem)/1 bebas, sans-serif;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  transition: 0.4s;
+
+  &:hover {
+    background: var(--pink);
+    color: var(--black);
+    border-color: var(--pink);
+  }
+
+  &:hover span { color: var(--white); }
+  &:focus-visible { outline: 1px solid var(--pink); outline-offset: 5px; }
+  span { color: var(--pink); transition: 0.4s; }
+}
+
+/* MARK: TEKST */
+
+.project-label,
+.section-number,
+.image-caption {
+  font-family: octarinelight, sans-serif;
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-label,
+.section-number { margin: 0; }
+
+p {
+  font-family: seraph, serif;
+  font-weight: 100;
+  font-variation-settings: "wght" 100;
+}
+
+.section-text {
+  max-width: 34em;
+  font: var(--step-0)/1.7 octarinelight, sans-serif;
+
+  p { margin: 0 0 1em; }
+}
+
+.image-caption {
+  margin-top: 0.8em;
+  color: #aaa69f;
+  font-size: 0.65rem;
+  line-height: 1.5;
+}
+
+/* MARK: OPENING */
+
+.project-opening {
+  min-height: 90svh;
+  padding: 7rem 1.25em 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    width: max-content;
+    max-width: 100%;
+    margin: 0.5em 0 0 -0.045em;
+    font: normal clamp(6rem, 26vw, 14rem)/0.5 bebas, sans-serif;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+
+    span { color: var(--pink); }
+  }
+
+  @media (width > 48em) {
+    min-height: 100svh;
+    padding: 7em 6vw 3em;
+
+    h1 { font-size: clamp(12rem, 24vw, 25rem); }
+  }
+}
+
+.opening-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2em;
+  margin-top: 4em;
+
+  @media (width > 48em) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.opening-description {
+  max-width: 19em;
+  margin: 0 0 0 12vw;
+  font: var(--step-1)/1.35 octarinelight, sans-serif;
+}
+
+.project-year {
+  align-self: flex-end;
+  margin: 0;
   color: var(--pink);
+  font: var(--step-2)/0.8 bebas, sans-serif;
+  text-align: right;
 }
 
-.reflection p {
-  max-width: 27em;
-  margin: 2em 0 0 auto;
+/* MARK: SECTIES */
+
+.project-section {
+  position: relative;
+  padding: 5em 1.25em;
+
+  @media (width > 48em) { padding: 8em 8vw; }
 }
 
+.section-number {
+  width: fit-content;
+  margin-bottom: 2.5em;
+  color: var(--pink);
+  transform: rotate(-4deg);
 
-/* MARK: tablet */
-
-@media (min-width: 42em) {
-
-  .opening {
-    min-height: 85svh;
-    padding: 7em 8vw;
+  @media (width > 48em) {
+    margin-left: -4vw;
+    font-size: var(--step-0);
   }
+}
 
-  .opening h1 {
-    font-size: clamp(10rem, 21vw, 18rem);
-  }
+.section-heading h2,
+.intro-content h2,
+.poster-intro h2,
+.reflection h2 {
+  margin: 0;
+  font: normal var(--step-3)/0.76 bebas, sans-serif;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
 
-  .intro-text {
-    margin-left: 15vw;
-    font-size: 1.1rem;
-  }
+/* MARK: INTRODUCTIE */
 
-  .campaign,
-  .opinion,
-  .website {
-    padding: 7em 8vw;
-  }
+.introduction,
+.opinion,
+.website {
+  background: var(--white);
+  color: var(--black);
+}
 
-  .section-heading h2 {
-    font-size: clamp(7rem, 12vw, 12rem);
-  }
+.intro-content,
+.poster-intro {
+  display: grid;
+  gap: 2em;
 
-  .poster-grid {
+  .section-text { margin-left: auto; }
+}
+
+.intro-content h2 { max-width: 7em; }
+
+@media (width > 48em) {
+  .intro-content {
     grid-template-columns: 1fr 1fr;
-    column-gap: 2em;
-    row-gap: 1em;
+    gap: 5vw;
+
+    h2 { font-size: clamp(6rem, 11vw, 13rem); }
+    .section-text { margin-top: 5em; }
+  }
+}
+
+/* MARK: ONDERZOEK */
+
+.research { padding-top: 6em; }
+
+.research .section-heading {
+  h2 { max-width: 8em; }
+  .section-text { margin: 2em 0 0 10vw; }
+}
+
+.research-result {
+  margin: 5em 0 3em;
+
+  .result-number {
+    display: flex;
+    align-items: flex-start;
+    color: var(--pink);
+    font: clamp(9rem, 38vw, 22rem)/0.65 bebas, sans-serif;
+    letter-spacing: -0.08em;
   }
 
-  .poster-grid img:nth-child(2) {
-    margin-top: 7em;
+  p {
+    max-width: 17em;
+    margin: 2em 0 0 18vw;
+    font-size: var(--step-1);
+    line-height: 1.3;
+  }
+}
+
+.result-percent { margin: 0.05em 0 0 0.1em; font-size: 0.35em; }
+
+.data-visual {
+  width: 90%;
+  max-width: 42em;
+  margin: 5em 0 0 auto;
+}
+
+/* MARK: OPINIESTUK */
+
+.opinion .section-heading {
+  h2 { max-width: 8em; }
+  .section-text { margin: 2em 0 0 10vw; }
+}
+
+.opinion-images,
+.poster-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 1.5em 0.5em;
+  margin-top: 5em;
+}
+
+.opinion-images {
+  margin-inline: -0.5em;
+
+  img:first-child { grid-column: 1 / -1; transform: rotate(-2deg); }
+  img:nth-child(2) { width: 105%; margin: 2em 0 0 -4%; transform: rotate(2deg); }
+  img:nth-child(3) { width: 110%; margin: 5em 0 0 -5%; transform: rotate(-1.5deg); }
+  img:nth-child(4) { grid-column: 1 / -1; width: 85%; margin: 2em 0 0 auto; transform: rotate(1.5deg); }
+  img:last-child { grid-column: 1 / -1; width: 90%; margin: 3em auto 0; }
+}
+
+/* MARK: POSTERS */
+
+.poster-intro h2 { max-width: 6em; font-size: var(--step-4); }
+
+.poster-grid {
+  gap: 1em;
+
+  img:nth-child(1) { width: 95%; margin-left: -2%; transform: rotate(-2deg); }
+  img:nth-child(2) { width: 90%; margin: 3em 0 0 auto; transform: rotate(1.5deg); }
+  img:nth-child(3) { width: 90%; margin-top: -1em; transform: rotate(1deg); }
+  img:nth-child(4) { width: 95%; margin: 3em 0 0 auto; transform: rotate(-1.5deg); }
+}
+
+.shop-image {
+  width: 100%;
+  margin-top: 5em;
+
+  img { transform: rotate(0.5deg); }
+}
+
+.posters > img {
+  width: 95%;
+  margin: 4em auto 0;
+}
+
+/* MARK: WEBSITE */
+
+.website .section-heading {
+  h2 { max-width: 7em; }
+  .section-text { margin: 2em 0 0 10vw; }
+}
+
+.website-images {
+  display: grid;
+  gap: 2em;
+  margin-top: 4em;
+
+  img:first-child { width: 94%; margin-left: -2%; transform: rotate(-1deg); }
+  img:last-child { width: 88%; margin-left: auto; transform: rotate(1.2deg); }
+}
+
+/* MARK: TERUGBLIK */
+
+.reflection {
+  min-height: 75svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 7em;
+
+  h2 {
+    width: max-content;
+    max-width: 100%;
+    margin-left: -0.04em;
+    font-size: var(--step-4);
+  }
+}
+
+.reflection-text {
+  max-width: 30em;
+  margin: 3em 0 0 16vw;
+  font-size: var(--step-1);
+  line-height: 1.45;
+}
+
+/* MARK: FOOTER */
+
+.project-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em 1.25em;
+  border-top: 1px solid #494542;
+  font: var(--step--1) octarinelight, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  a {
+    width: fit-content;
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.4s;
+    &:hover { color: var(--pink); }
   }
 
-  .poster-grid img:nth-child(3) {
-    margin-top: -4em;
+  p { margin: 0; color: #aaa69f; }
+}
+
+/* MARK: GROTERE SCHERMEN */
+
+@media (width > 48em) {
+  .research .section-heading,
+  .website .section-heading {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4vw;
+    align-items: end;
+
+    .section-text { margin: 0 0 1em; }
   }
 
-  .poster-grid img:nth-child(4) {
-    margin-top: 3em;
-  }
+  .research-result {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2em;
+    margin: 8em -2vw 6em;
 
-  .campaign-description {
-    margin-top: 6em;
-    margin-bottom: 4em;
-  }
-
-  .shop-image {
-    width: 88%;
-    margin-left: auto;
+    p { margin: 0 4vw 1em 0; }
   }
 
   .opinion-images {
-    grid-template-columns: 1.3fr 1fr 1fr;
-    gap: 1.2em;
+    grid-template-columns: 1.3fr 0.7fr 1fr;
+    gap: 2em 3vw;
+    margin: 8em -4vw 0;
+
+    img:first-child { grid-column: 1 / 3; width: 105%; margin-left: -3%; }
+    img:nth-child(2) { width: 120%; margin: 8em 0 0 -10%; }
+    img:nth-child(3) { width: 115%; margin: -3em 0 0 5%; }
+    img:nth-child(4) { grid-column: 2 / 4; width: 90%; margin: 4em 0 0 auto; }
+    img:last-child { grid-column: 1 / -1; width: 85%; margin: 5em auto 0; }
   }
 
-  .opinion-images img:first-child {
-    grid-column: auto;
-    width: 100%;
+  .poster-intro { grid-template-columns: 1.2fr 0.8fr; gap: 4vw; align-items: end; }
+
+  .poster-grid {
+    column-gap: 7vw;
+    row-gap: 3em;
+
+    img:nth-child(2) { margin-top: 6em; }
+    img:nth-child(3) { margin-top: -2em; }
+    img:nth-child(4) { margin-top: 4em; }
   }
 
-  .opinion-images img:nth-child(2) {
-    margin-top: 5em;
-  }
-
-  .opinion-images img:nth-child(3) {
-    margin-top: 2em;
-  }
+  .shop-image { width: 80%; margin: 7em 0 0 auto; }
 
   .website-images {
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 2em;
-    align-items: start;
+    gap: 4vw;
+    margin-top: 6em;
+
+    img:last-child { margin-top: 7em; }
   }
 
-  .website-images img:first-child {
-    width: 100%;
-    margin-top: 4em;
-  }
+  .reflection-text { margin-left: auto; }
 
-  .website-images img:last-child {
-    width: 100%;
-    margin-top: 0;
-  }
-
-  .reflection {
-    padding: 7em 8vw;
+  .project-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em 6vw;
   }
 }
 
-
-/* MARK: desktop */
-
-@media (min-width: 75em) {
-
-  .opening {
-    min-height: 95svh;
-    padding-left: 10vw;
-  }
-
-  .opening h1 {
-    font-size: clamp(18rem, 23vw, 27rem);
-  }
-
-  .intro-text {
-    margin-top: 4em;
-  }
-
-  .campaign,
-  .opinion,
-  .website {
-    padding: 9em 10vw;
-  }
-
-  .section-heading h2 {
-    font-size: clamp(10rem, 14vw, 16rem);
-  }
-
-  .poster-grid {
-    grid-template-columns: 0.9fr 1.1fr;
-    column-gap: 5em;
-    row-gap: 2em;
-    align-items: start;
-  }
-
-  .poster-grid img:nth-child(1) {
-    width: 85%;
-    margin-left: 8%;
-  }
-
-  .poster-grid img:nth-child(2) {
-    width: 80%;
-    margin-top: 10em;
-  }
-
-  .poster-grid img:nth-child(3) {
-    width: 90%;
-    margin-top: -3em;
-    margin-left: 5%;
-  }
-
-  .poster-grid img:nth-child(4) {
-    width: 75%;
-    margin-top: 5em;
-    margin-left: 15%;
-  }
-
-  .campaign-description {
-    margin-top: 8em;
-    margin-right: 8%;
-  }
-
-  .shop-image {
-    width: 78%;
-    margin-right: 5%;
-  }
-
-  .opinion-images {
-    gap: 2.5em;
-  }
-
-  .opinion-images img:nth-child(2) {
-    margin-top: 8em;
-  }
-
-  .opinion-images img:nth-child(3) {
-    margin-top: 3em;
-  }
-
-  .website .description {
-    margin-left: 18%;
-  }
-
-  .website-images {
-    gap: 5em;
-  }
-
-  .website-images img:last-child {
-    margin-top: 8em;
-  }
-
-  .reflection {
-    padding: 9em 15vw;
-  }
+@media (width > 80em) {
+  .opinion-images { margin-inline: -6vw; }
+  .poster-grid { column-gap: 10vw; }
 }
 
+/* MARK: BEWEGING */
 
-/* MARK: beweging */
-
-@media (prefers-reduced-motion: no-preference) {
-
+@media (hover: hover) {
   .poster-grid img,
   .opinion-images img,
-  .website-images img {
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+  .website-images img,
+  .shop-image img {
+    transition: 0.4s;
 
-  .poster-grid img:hover,
-  .opinion-images img:hover,
-  .website-images img:hover {
-    transform: translateY(-0.6em);
+    &:hover { transform: rotate(0deg) scale(1.02); }
   }
 }
