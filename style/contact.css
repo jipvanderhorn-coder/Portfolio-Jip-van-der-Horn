@@ -1,0 +1,214 @@
+/* MARK: fonts */
+
+@font-face {
+  font-family: bebas;
+  src: url(/assets/fonts/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+  font-family: octarinelight;
+  src: url(/assets/fonts/Octarine-Light.otf);
+}
+
+/* MARK: kleuren */
+
+:root {
+  --black: #171717;
+  --pink: #ed1685;
+  --white: #f0eee8;
+  --orange: #e58e0b;
+
+  --step--2: clamp(0.5252rem, 0.7509rem + -0.2507cqi, 0.6944rem);
+  --step--1: clamp(0.8333rem, 0.8278rem + 0.0244cqi, 0.8498rem);
+  --step-0: clamp(0.872rem, 0.695rem + 2.8556cqi, 1.175rem);
+  --step-1: clamp(1.2rem, 0.8584rem + 4.5181cqi, 2.2248rem);
+  --step-2: clamp(1.44rem, 0.7201rem + 3.1995cqi, 3.5996rem);
+  --step-3: clamp(1.728rem, 0.3626rem + 6.0685cqi, 5.8242rem);
+  --step-4: clamp(2.0736rem, -0.3764rem + 10.8889cqi, 9.4236rem);
+  --step-5: clamp(3.4883rem, -1.2647rem + 28.9023cqi, 15.2474rem);
+}
+
+/* MARK: basis */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+}
+
+.contactpagina {
+  container-type: inline-size;
+  min-height: 100svh;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* MARK: navigatie */
+
+.home-logo {
+  position: fixed;
+  z-index: 4;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5em;
+  border: 1px solid rgb(240 238 232 / 20%);
+  background: var(--black);
+  color: var(--white);
+  font-family: bebas, sans-serif;
+  font-size: var(--step-2);
+  line-height: 1;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.home-logo:hover {
+  border-color: var(--pink);
+  background: var(--pink);
+  color: var(--black);
+}
+
+/* MARK: titel */
+
+.intro {
+  padding: 8rem 0 4rem;
+}
+
+.intro h1 {
+  margin: 0;
+  font-family: bebas, sans-serif;
+  font-size: var(--step-5);
+  font-weight: normal;
+  line-height: 0.8;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.intro h1 span {
+  display: block;
+  text-shadow: 5px 5px 0 var(--pink);
+  animation: zweef 6s ease-in-out infinite alternate;
+}
+
+@keyframes zweef {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: 0.12em -0.04em;
+  }
+}
+
+/* MARK: contactgegevens */
+
+.contactgegevens {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-waarde {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgb(240 238 232 / 25%);
+}
+
+.contact-waarde:last-child {
+  border-bottom: 1px solid rgb(240 238 232 / 25%);
+}
+
+.contact-waarde a {
+  min-width: 0;
+  font-family: bebas, sans-serif;
+  font-size: var(--step-3);
+  line-height: 1;
+  color: var(--white);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.3s ease;
+}
+
+.contact-waarde a:hover {
+  color: var(--pink);
+}
+
+.contact-waarde a span {
+  color: var(--pink);
+}
+
+/* MARK: kopieerknop */
+
+.kopieer {
+  flex: 0 0 7.5rem;
+  min-height: 2.5rem;
+  padding: 0.7rem;
+  border: 1px solid var(--pink);
+  background: transparent;
+  color: var(--pink);
+  font-family: octarinelight, sans-serif;
+  font-size: var(--step--2);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.kopieer:hover {
+  background: var(--pink);
+  color: var(--black);
+  scale: 1.2;
+}
+
+.kopieer:active {
+  scale: 0.9;
+}
+
+.kopieer.gekopieerd {
+  background: var(--orange);
+  color: var(--black);
+  border: 1px solid var(--orange);
+}
+
+/* MARK: footer */
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding: 5rem 0 1rem;
+  font-family: octarinelight, sans-serif;
+  font-size: var(--step--2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+footer a {
+  color: var(--pink);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--orange);
+}
+
+/* MARK: focus */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px dashed var(--orange);
+  outline-offset: 5px;
+}
