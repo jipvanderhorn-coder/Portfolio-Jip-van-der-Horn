@@ -14,7 +14,7 @@ if (knop) {
       knop.classList.add("gekopieerd");
 
       setTimeout(() => {
-        knop.textContent = "COPY ↗";
+        knop.textContent = "KOPIEER ↗";
         knop.classList.remove("gekopieerd");
       }, 2000);
     } catch (error) {

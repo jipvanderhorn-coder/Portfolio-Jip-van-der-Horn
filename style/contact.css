@@ -88,14 +88,14 @@ body {
   font-size: var(--step-5);
   font-weight: normal;
   line-height: 0.8;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
 }
 
 .intro h1 span {
   display: block;
   text-shadow: 5px 5px 0 var(--pink);
-  animation: zweef 9s ease-in-out infinite alternate;
+  animation: zweef 14s ease-in-out infinite alternate;
 }
 
 @keyframes zweef {
@@ -142,10 +142,6 @@ body {
 }
 
 .contact-waarde a:hover {
-  color: var(--pink);
-}
-
-.contact-waarde a span {
   color: var(--pink);
 }
 

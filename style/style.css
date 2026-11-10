@@ -229,9 +229,8 @@ header {
   align-items: flex-start;
   gap: 0.08em;
   padding-right: 3em;
-
   width: fit-content;
-  margin: 0em;
+  margin: 0;
 
   font-family: bebas, sans-serif;
   font-size: var(--step-1);
@@ -283,32 +282,7 @@ header {
     clip-path: inset(0 0 0 0);
   }
 }
-.ontdek {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  width: min(100%, 8em);
-  height: 2.5em;
-
-  background: var(--pink);
-  color: var(--black);
-
-  font-family: bebas, sans-serif;
-  font-size: var(--step-2);
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  transition: 0.4s ease-in-out;
-}
-
-.ontdek:hover {
-  background: var(--black);
-  color: var(--pink);
-  transform: translateY(-6px);
-  box-shadow: 0 8px 0 var(--pink);
-}
 /* MARK: knoppen */
 
 .knoppen {
@@ -318,44 +292,72 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1em;
+  gap: clamp(1rem, 4vw, 4rem);
 
   width: 100%;
+  min-width: 0;
 }
 
-/* MARK: contact knop */
+/* MARK: ontdek en contact */
 
+.ontdek,
 .contact {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: min(100%, 8em);
-  height: 2.5em;
-
-  background: var(--orange);
-  color: var(--black);
+  flex: 0 1 15rem;
+  width: 100%;
+  min-width: 0;
+  min-height: clamp(3.5rem, 5vw, 5rem);
+  padding: 0.5em 0.8em;
 
   font-family: bebas, sans-serif;
-  font-size: var(--step-2);
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  line-height: 1;
   letter-spacing: 0.05em;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
 
-  transition: 0.4s ease-in-out;
+  transition: 0.35s ease;
+}
+
+.ontdek {
+  border: 1px solid var(--pink);
+  background: transparent;
+  color: var(--pink);
+}
+
+.contact {
+  border: 1px solid var(--orange);
+  background: transparent;
+  color: var(--orange);
+}
+
+/* MARK: hover */
+
+.ontdek:hover {
+  background: var(--pink);
+  color: var(--black);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 0 var(--pink);
 }
 
 .contact:hover {
-  background: var(--black);
-  color: var(--orange);
-  transform: translateY(-6px);
-  box-shadow: 0 8px 0 var(--orange);
+  background: var(--orange);
+  color: var(--black);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 0 var(--orange);
 }
 
+/* MARK: focus */
+
+.ontdek:focus-visible,
 .contact:focus-visible {
-  outline: 4px dashed var(--white);
-  outline-offset: 5px;
-  rotate: 4deg;
+  outline: 2px dashed var(--white);
+  outline-offset: 6px;
 }
 
 /* MARK: mobiel */
@@ -363,45 +365,36 @@ header {
 @media (max-width: 45em) {
   .knoppen {
     flex-direction: column;
-    gap: 0.7em;
+    align-items: center;
+    gap: 0.8rem;
   }
 
   .ontdek,
   .contact {
-    width: 100%;
-    height: 3.2em;
-    margin: 0.5em 0;
+    flex: none;
+    width: min(100%, 22rem);
+    min-height: 3.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
   }
 }
-
-/* MARK: work */
+/* MARK: work section */
 
 .work {
+  min-height: 100svh;
+  box-sizing: border-box;
+  padding: 5em clamp(1.25em, 5vw, 5em);
+
   background: var(--white);
   color: var(--black);
-  padding: 4em 5vw 8em;
 }
 
-.work-header {
-  display: flex;
-  justify-content: space-between;
-  font-family: octarinelight, sans-serif;
-  font-size: var(--step--1);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.work-header p {
-  margin: 0;
-}
+/* MARK: work heading */
 
 .work h2 {
-  display: flex;
-  align-items: baseline;
-  white-space: nowrap;
-  margin: 0.8em 0 1.2em;
+  margin: 0 0 1em;
   font-family: bebas, sans-serif;
-  font-size: clamp(3rem, 12vw, 12rem);
+  font-size: clamp(4rem, 12vw, 12rem);
+  font-weight: normal;
   line-height: 0.8;
   letter-spacing: -0.045em;
   text-transform: uppercase;
