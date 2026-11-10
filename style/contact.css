@@ -95,16 +95,15 @@ body {
 .intro h1 span {
   display: block;
   text-shadow: 5px 5px 0 var(--pink);
-  animation: zweef 6s ease-in-out infinite alternate;
+  animation: zweef 9s ease-in-out infinite alternate;
 }
 
 @keyframes zweef {
-  from {
-    translate: 0 0;
+  0% {
+    rotate: 4deg;
   }
-
-  to {
-    translate: 0.12em -0.04em;
+  100% {
+    rotate: -5deg;
   }
 }
 
@@ -160,7 +159,7 @@ body {
   background: transparent;
   color: var(--pink);
   font-family: octarinelight, sans-serif;
-  font-size: var(--step--2);
+  font-size: var(--step-0);
   white-space: nowrap;
   cursor: pointer;
   transition: 0.3s;
@@ -188,9 +187,9 @@ footer {
   display: flex;
   justify-content: flex-end;
   margin-top: auto;
-  padding: 5rem 0 1rem;
+  padding: 2rem;
   font-family: octarinelight, sans-serif;
-  font-size: var(--step--2);
+  font-size: var(--step-0);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -198,11 +197,12 @@ footer {
 footer a {
   color: var(--pink);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 footer a:hover {
   color: var(--orange);
+  scale: 1.2;
 }
 
 /* MARK: focus */
