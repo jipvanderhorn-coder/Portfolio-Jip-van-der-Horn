@@ -514,7 +514,7 @@ header {
   inset: 0;
   display: grid;
   place-items: center;
-  background: rgb(237 22 133 / 75%);
+  background: rgb(237 22 133 / 74%);
   color: var(--black);
   font-family: bebas, sans-serif;
   font-size: clamp(2rem, 5vw, 4rem);
