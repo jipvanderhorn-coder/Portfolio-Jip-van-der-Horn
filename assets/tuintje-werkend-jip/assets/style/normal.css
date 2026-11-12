@@ -1,0 +1,1249 @@
+/* MARK: FONTS */
+@font-face {
+  font-family: seraphs;
+  src: url(../type/SeraphsVF.woff2);
+}
+
+@font-face {
+  font-family: "astroz";
+  src: url(../type/Astroz\ Trial.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "alviona";
+  src: url(../type/Alviona.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "boldstorm";
+  src: url(../type/Boldstrom\ D.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "bilderberg";
+  src: url(../type/Bilderberg\ OTF.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "zaddick";
+  src: url(../type/thezaddick-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "fundamental";
+  src: url(../type/Fundamental\ Brigade\ Schwer.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "laserdisc";
+  src: url(../type/Laser-Disc.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "monoton";
+  src: url(../type/Monoton-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "comicrelief";
+  src: url(../type/ComicRelief-Regular.woff2);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sfretro";
+  src: url(../type/SFRetroSpliceSC.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* MARK: KLEURTJES en andere props */
+
+html {
+  color-scheme: light dark;
+
+  --bg: light-dark(rgb(56, 50, 43), rgb(0, 0, 0));
+  color: white;
+  --witruimte-s: 1em;
+  --witruimte-m: 2em;
+
+  @media (width > 48em) {
+    --witruimte-s: 1.5em;
+    --witruimte-m: 3em;
+  }
+}
+
+/* MARK: ALGEMENE STYLING */
+
+/* MARK: achtergrondkleuren */
+
+html:has([value="auto"]:checked) {
+  color-scheme: light dark;
+  --bg: light-dark(rgb(96, 94, 91), rgb(0, 0, 0));
+  color: white;
+}
+
+html:has([value="zwart"]:checked) {
+  --bg: rgb(0, 0, 0);
+  color: white;
+}
+
+html:has([value="grijs"]:checked) {
+  --bg: rgb(96, 94, 91);
+  color: white;
+}
+
+html:has([value="roze"]:checked) {
+  --bg: rgb(231, 134, 160);
+  color: white;
+}
+
+html:has([value="blauw"]:checked) {
+  --bg: rgb(65, 110, 180);
+  color: white;
+}
+
+html:has([value="oranje"]:checked) {
+  --bg: rgb(224, 139, 54);
+  color: white;
+}
+
+/* MARK: thema knoppen */
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 2em;
+}
+
+form label {
+  border: 2px solid white;
+  padding: 1em;
+  cursor: pointer;
+  font-family: monoton;
+  text-shadow:
+    0px 0px 0 rgb(235, 20, 20),
+    0px 0px 0 rgb(19, 185, 210);
+
+  transition: 0.5s;
+}
+
+form label:hover {
+  background-color: white;
+  color: black;
+  border-color: rgb(235, 20, 20);
+  rotate: -3deg;
+
+  text-shadow:
+    3px 3px 0 rgb(235, 20, 20),
+    7px 7px 0 rgb(19, 185, 210);
+
+  scale: 1.3;
+}
+
+form label:has(input:checked) {
+  background: rgba(235, 20, 20, 0.5);
+}
+
+form input {
+  accent-color: rgb(235, 20, 20);
+}
+
+form label:has(input:focus-visible) {
+  outline: 4px dashed rgb(210, 14, 228);
+  outline-offset: 5px;
+  background-color: white;
+  color: black;
+  scale: 1.2;
+  z-index: 2;
+  rotate: 5deg;
+}
+
+p {
+  font-family: seraphs;
+
+  font-variation-settings:
+    "wght" 110,
+    "SRFS" 25;
+
+  font-size: clamp(0.8rem, 0.875rem + 0.9vw, 1.5rem);
+  line-height: 1.4;
+
+  @media (width > 48em) {
+    max-width: 30em;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  z-index: 0;
+  display: block;
+}
+
+/* MARK: WRAPPERS */
+
+html {
+  margin: auto;
+
+  background-color: var(--bg);
+}
+
+body {
+  margin-bottom: 15em;
+  padding: 1em;
+}
+
+/* MARK: HEADER */
+
+h1 {
+  text-align: center;
+
+  font-family: seraphs;
+  margin-bottom: 0em;
+
+  font-variation-settings:
+    "wght" 110,
+    "SRFS" 25;
+
+  @media (width > 32em) {
+    font-size: 2.5em;
+  }
+
+  @media (width > 48em) {
+    font-size: 3em;
+  }
+
+  em {
+    font-family: monoton;
+    display: block;
+
+    animation: --tekstkleur linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0vh 87vh;
+    font-size: 2.6em;
+
+    @media (width > 32em) {
+      font-size: calc(8 / 3 * 1em);
+    }
+
+    @media (width > 48em) {
+      font-size: 2.5em;
+    }
+    @media (width > 80em) {
+      font-size: 4em;
+    }
+  }
+}
+
+/* MARK: MAIN */
+
+main {
+  animation: --main-ani linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0vh 20vh;
+
+  display: grid;
+  grid-auto-flow: dense;
+
+  margin-bottom: 40em;
+  max-width: 34em;
+  margin-inline: auto;
+
+  @media (width > 48em) {
+    max-width: 38em;
+  }
+  @media (width > 80em) {
+    max-width: 60em;
+  }
+}
+
+@keyframes --main-ani {
+  0% {
+    translate: 0 3em;
+  }
+  100% {
+    translate: 0 32em;
+  }
+}
+
+main section h2 {
+  margin-top: 7em;
+  margin-bottom: 2em;
+
+  width: 100%;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 0;
+  text-align: center;
+
+  @media (width > 32em) {
+    grid-column: 1 / -1;
+  }
+
+  button {
+    display: inline-block;
+    z-index: 2;
+  }
+}
+
+main > p:first-child {
+  grid-column: 1/-1;
+}
+
+main button {
+  font-size: 8em;
+
+  animation-timeline: view();
+  animation-range: 70vh 200vh;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+
+  @media (width > 32em) {
+    font-size: 10em;
+  }
+
+  @media (width > 80em) {
+    font-size: 15em;
+  }
+}
+section {
+  display: grid;
+  grid-template-columns: auto;
+  padding-right: 2em;
+  padding-left: 2em;
+  transition: 0.3s;
+}
+
+main section:nth-of-type(1) button {
+  font-family: astroz;
+  margin-bottom: 0.5em;
+  animation-name: --tekstkleur70s;
+  z-index: 1;
+}
+
+main section:nth-of-type(2) button {
+  font-family: laserdisc;
+
+  margin-bottom: 0.2em;
+  animation-name: --tekstkleur80s;
+  z-index: 1;
+}
+
+main section:nth-of-type(3) button {
+  font-family: sfretro;
+
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
+  animation-name: --tekstkleur90s;
+  z-index: 1;
+}
+
+main section:nth-of-type(4) button {
+  font-family: zaddick;
+  font-size: 8em;
+  margin-bottom: 0.2em;
+  animation-name: --tekstkleur00s;
+  z-index: 1;
+  @media (width > 32em) {
+    font-size: 10em;
+  }
+  @media (width > 80em) {
+    font-size: 20em;
+  }
+}
+main section:nth-of-type(5) button {
+  font-family: fundamental;
+  font-size: 10em;
+  margin-bottom: 0.2em;
+  margin-top: 0em;
+  animation-name: --tekstkleur10s;
+  animation-range: 30vh 200vh;
+  z-index: 1;
+
+  @media (width > 32em) {
+    font-size: 12em;
+  }
+  @media (width > 80em) {
+    font-size: 20em;
+  }
+}
+
+main section:nth-of-type(6) button {
+  font-family: boldstorm;
+  font-size: 8em;
+  text-align: center;
+  margin-bottom: 0.2em;
+  animation-name: --tekstkleur20s;
+  animation-range: 30vh 200vh;
+  z-index: 1;
+  @media (width > 32em) {
+    font-size: 10em;
+  }
+  @media (width > 80em) {
+    font-size: 20em;
+  }
+}
+
+main section:nth-of-type(7) button {
+  font-family: alviona;
+  font-size: 10em;
+  text-align: center;
+
+  animation-name: --tekstkleurnu;
+  animation-timeline: view();
+  animation-range: 30vh 200vh;
+  z-index: 1;
+
+  @media (width > 80em) {
+    font-size: 20em;
+  }
+}
+
+main figure {
+  margin: 0;
+  padding: 1em 0;
+
+  img {
+    grid-area: foto;
+    filter: saturate(0.8);
+    opacity: 0.5;
+    transform: scale(0.9);
+    transition: 0.3s;
+
+    animation: --grow;
+    animation-timeline: view();
+    animation-range: 0vh 250vh;
+  }
+
+  figcaption {
+    grid-area: tekst;
+
+    font-size: clamp(1rem, 0.875rem + 0.625vw, 1.25rem);
+    line-height: 1.1;
+    opacity: 0.4;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-top: 0;
+
+    align-self: center;
+
+    transition: 0.3s;
+
+    @media (width < 48em) {
+      animation: --growcaption;
+      animation-timeline: view();
+      animation-range: 0vh 120vh;
+      animation-timing-function: linear;
+    }
+  }
+
+  @media (width > 48em) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "tekst foto";
+    gap: var(--witruimte-m);
+
+    section:nth-of-type(odd) & {
+      grid-template-areas: "foto tekst";
+    }
+  }
+
+  @media (width > 80em) {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "tekst foto";
+
+    section:nth-of-type(odd) & {
+      grid-template-columns: 2fr 1fr;
+      grid-template-areas: "foto tekst";
+    }
+  }
+}
+/* MARK: cookie knop */
+
+footer {
+  position: fixed;
+  bottom: 1em;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+footer button {
+  line-height: 3em;
+  position: relative;
+  padding: 1em;
+
+  background: transparent;
+  border: 2px solid white;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+  border: 2px solid white;
+}
+
+footer span {
+  font-family: monoton;
+  font-size: clamp(0.5rem, 0.002rem + 5vw, 10rem);
+  line-height: 0.8;
+
+  text-shadow:
+    3px 3px 0 rgb(235 20 20),
+    6px 6px 0 rgb(19 185 210);
+}
+
+footer button:hover {
+  background-color: white;
+  border-color: rgb(235 20 20);
+
+  scale: 1.3;
+}
+
+footer button:hover span {
+  color: black;
+
+  text-shadow:
+    3px 3px 0 rgb(235 20 20),
+    6px 6px 0 rgb(19 185 210);
+}
+
+footer button:focus {
+  outline: 3px dashed rgb(212, 5, 244);
+
+  background-color: rgb(57, 5, 65);
+
+  scale: 1.3;
+}
+
+footer button:active {
+  scale: 0.92;
+}
+
+footer nav {
+  animation: cookiechaos linear;
+  animation-timeline: scroll();
+}
+
+@keyframes cookiechaos {
+  0% {
+    transform: translateX(2vw) scale(0.6);
+  }
+
+  10% {
+    transform: translateX(45vw) scale(0.8);
+    rotate: -7deg;
+  }
+
+  25% {
+    transform: translateX(2vw) scale(0.6);
+    rotate: 17deg;
+  }
+
+  50% {
+    transform: translateX(45vw) scale(0.9);
+    rotate: -7deg;
+  }
+
+  75% {
+    transform: translateX(2vw) scale(0.5);
+    rotate: 17deg;
+  }
+
+  100% {
+    transform: translateX(40vw) scale(0.7);
+    rotate: -7deg;
+  }
+}
+
+footer button:focus-visible {
+  outline: 3px dashed rgb(212, 5, 244);
+  outline-offset: 4px;
+}
+
+/* MARK: cookie melding */
+
+#cookieModal {
+  background-color: var(--bg);
+  color: white;
+  border: 3px solid white;
+  width: 90%;
+  max-width: 30em;
+  box-shadow: 10px 10px 0 rgb(200 122 5);
+  box-sizing: border-box;
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(0.8rem, 0.7rem + 0.8vw, 1.2rem);
+  }
+
+  button {
+    font-family: monoton;
+    font-size: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+    margin: 1em;
+    border: 1px dashed rgb(66, 125, 17);
+    transition: 0.5s;
+  }
+
+  button:hover {
+    text-shadow:
+      3px 3px 0 rgb(235 20 20),
+      6px 6px 0 rgb(19 185 210);
+    transform: rotateZ(10deg);
+    border: 0.001px dashed rgb(66, 125, 17);
+    scale: 1.5;
+  }
+  button:active {
+    background-color: rgb(117, 65, 124);
+    scale: 0.8;
+  }
+
+  button:focus {
+    transform: rotateZ(10deg);
+    border: 3px solid pink;
+    text-shadow:
+      3px 3px 0 rgb(235 20 20),
+      6px 6px 0 rgb(19 185 210);
+    scale: 1.5;
+  }
+}
+
+/* MARK: hover effecten */
+
+section:has(img:hover) {
+  @media (width > 48em) {
+    opacity: 1;
+    transform: scale(1.3);
+    filter: saturate(1.5);
+
+    figcaption {
+      transform: scale(1.2);
+      opacity: 1;
+      letter-spacing: 0.4em;
+      z-index: 2;
+    }
+  }
+}
+
+section:has(button:active) {
+  transition: 0.1s;
+  background-color: rgb(200 122 5);
+}
+
+section {
+  @media (width < 48em) {
+    animation-timeline: view();
+    animation-range: 80vh 250vh;
+    animation-fill-mode: linear;
+  }
+}
+
+@keyframes --grow {
+  0% {
+    scale: 1;
+  }
+
+  40% {
+    scale: 1;
+  }
+  70% {
+    scale: 1.3;
+    opacity: 1;
+
+    filter: saturate(1.5);
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes --growcaption {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+    letter-spacing: 0.07em;
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.2);
+    letter-spacing: 0.6em;
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+    letter-spacing: 0.07em;
+  }
+}
+
+/* MARK: shadows */
+
+@keyframes --tekstkleur70s {
+  0% {
+  }
+
+  20% {
+    /*    position: fixed; */
+    text-shadow:
+      0px 0px 2px rgb(19, 224, 29),
+      0px 0px 2px rgb(238, 238, 10),
+      0px 0px 2px rgb(235, 20, 20),
+      0px 0px 2px rgb(189, 49, 140),
+      0px 0px 2px rgb(19, 185, 210);
+  }
+
+  100% {
+    text-shadow:
+      0px 20px 4px rgb(19, 224, 29),
+      0px 40px 4px rgb(238, 238, 10),
+      0px 60px 4px rgb(235, 20, 20),
+      0px 80px 4px rgb(189, 49, 140),
+      0px 100px 4px rgb(19, 185, 210);
+  }
+}
+
+@keyframes --tekstkleur {
+  0% {
+  }
+
+  20% {
+    /*    position: fixed; */
+    text-shadow:
+      0px 100px 2px rgb(228, 241, 196),
+      0px 200px 2px rgb(79, 153, 98),
+      0px 300px 2px rgb(216, 216, 101),
+      0px 400px 2px rgb(62, 62, 167),
+      0px 500px 2px rgb(231, 81, 26);
+  }
+
+  90% {
+    text-shadow:
+      0px 200px 8px rgb(228, 241, 196),
+      0px 300px 8px rgb(79, 153, 98),
+      0px 400px 8px rgb(216, 216, 101),
+      0px 500px 8px rgb(62, 62, 167),
+      0px 600px 8px rgb(231, 81, 26);
+  }
+  100% {
+    text-shadow:
+      0px 280px 8px rgb(228, 241, 196),
+      0px 290px 8px rgb(79, 153, 98),
+      0px 300px 8px rgb(216, 216, 101),
+      0px 310px 8px rgb(62, 62, 167),
+      0px 320px 8px rgb(231, 81, 26);
+  }
+}
+
+@keyframes --tekstkleur80s {
+  0% {
+  }
+
+  20% {
+    /*    position: fixed; */
+    text-shadow:
+      0px 0px 2px rgb(185, 86, 43),
+      0px 0px 2px rgb(152, 206, 209),
+      0px 0px 2px rgb(235, 235, 20),
+      0px 0px 2px rgb(67, 183, 90),
+      0px 0px 2px rgb(43, 50, 51);
+  }
+
+  100% {
+    text-shadow:
+      0px 20px 4px rgb(185, 86, 43),
+      0px 40px 4px rgb(152, 206, 209),
+      0px 60px 4px rgb(235, 235, 20),
+      0px 80px 4px rgb(67, 183, 90),
+      0px 100px 4px rgb(43, 50, 51);
+  }
+}
+
+@keyframes --tekstkleur90s {
+  0% {
+  }
+
+  20% {
+    /*    position: fixed; */
+    text-shadow:
+      0px 0px 2px rgb(164, 150, 133),
+      0px 0px 2px rgb(101, 119, 42),
+      0px 0px 2px rgb(235, 235, 20),
+      0px 0px 2px rgb(243, 161, 79),
+      0px 0px 2px rgb(35, 154, 205);
+  }
+
+  100% {
+    text-shadow:
+      0px 20px 4px rgb(164, 150, 133),
+      0px 40px 4px rgb(101, 119, 42),
+      0px 60px 4px rgb(235, 235, 20),
+      0px 80px 4px rgb(243, 161, 79),
+      0px 100px 4px rgb(35, 154, 205);
+  }
+}
+
+@keyframes --tekstkleur00s {
+  0% {
+  }
+
+  20% {
+    /*    position: fixed; */
+    text-shadow:
+      0px 0px 2px rgb(240, 240, 240),
+      0px 0px 2px rgb(2, 127, 0),
+      0px 0px 2px rgb(235, 52, 20),
+      0px 0px 2px rgb(228, 237, 236),
+      0px 0px 2px rgb(203, 227, 22);
+  }
+
+  100% {
+    text-shadow:
+      0px 20px 4px rgb(240, 240, 240),
+      0px 40px 4px rgb(2, 127, 0),
+      0px 60px 4px rgb(235, 52, 20),
+      0px 80px 4px rgb(228, 237, 236),
+      0px 100px 4px rgb(203, 227, 22);
+  }
+}
+
+@keyframes --tekstkleur10s {
+  0% {
+  }
+
+  20% {
+    /*    position: fixed; */
+    text-shadow:
+      0px 0px 2px rgb(158, 80, 58),
+      0px 0px 2px rgb(173, 173, 173),
+      0px 0px 2px rgb(255, 255, 255),
+      0px 0px 2px rgb(0, 0, 0),
+      0px 0px 2px rgb(19, 29, 88);
+  }
+
+  100% {
+    text-shadow:
+      0px 20px 4px rgb(158, 80, 58),
+      0px 40px 4px rgb(173, 173, 173),
+      0px 60px 4px rgb(255, 255, 255),
+      0px 80px 4px rgb(0, 0, 0),
+      0px 100px 4px rgb(19, 29, 88);
+  }
+}
+
+@keyframes --tekstkleur20s {
+  0% {
+  }
+
+  20% {
+    /*    position: fixed; */
+    text-shadow:
+      0px 0px 2px rgb(61, 165, 193),
+      0px 0px 2px rgb(211, 215, 211),
+      0px 0px 2px rgb(246, 106, 106),
+      0px 0px 2px rgb(234, 232, 232),
+      0px 0px 2px rgb(168, 170, 58);
+  }
+
+  100% {
+    text-shadow:
+      0px 20px 4px rgb(61, 165, 193),
+      0px 40px 4px rgb(211, 215, 211),
+      0px 60px 4px rgb(246, 106, 106),
+      0px 80px 4px rgb(234, 232, 232),
+      0px 100px 4px rgb(168, 170, 58);
+  }
+}
+
+@keyframes --tekstkleurnu {
+  0% {
+  }
+
+  20% {
+    /*    position: fixed; */
+    text-shadow:
+      0px 0px 2px rgb(245, 111, 2),
+      0px 0px 2px rgb(18, 164, 200),
+      0px 0px 2px rgb(244, 240, 5),
+      0px 0px 2px rgb(229, 130, 204),
+      0px 0px 2px rgb(231, 231, 231);
+  }
+
+  100% {
+    text-shadow:
+      0px 20px 4px rgb(245, 111, 2),
+      0px 40px 4px rgb(18, 164, 200),
+      0px 60px 4px rgb(244, 240, 5),
+      0px 80px 4px rgb(229, 130, 204),
+      0px 100px 4px rgb(231, 231, 231);
+  }
+}
+
+@media (width > 48em) {
+  main figure img {
+    transform: rotate(5deg);
+  }
+}
+
+/* MARK: button leuk liedje */
+
+body > a {
+  display: table;
+  margin: 3em auto;
+  padding: 0.3em;
+  transition: 0.5s;
+  word-spacing: 0.3em;
+
+  font-family: monoton;
+  font-size: clamp(1.5rem, 4vw, 4em);
+  color: white;
+
+  background: transparent;
+  border: 2px solid white;
+  cursor: pointer;
+
+  text-shadow:
+    3px 3px 0 rgb(235 20 20),
+    6px 6px 0 rgb(19 185 210);
+}
+
+body > a:hover {
+  color: black;
+  background-color: white;
+  border-color: rgb(235 20 20);
+
+  scale: 1.2;
+  rotate: -3deg;
+}
+
+body > a:focus-visible {
+  outline: 3px dashed rgb(212 5 244);
+  scale: 1.2;
+  rotate: -3deg;
+}
+
+body > a:active {
+  scale: 0.7;
+}
+
+/* MARK: reduced motion en higher contrast */
+
+@media (prefers-reduced-motion: reduce), (prefers-contrast: more) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none;
+    animation-timeline: auto;
+    transition: none;
+  }
+
+  h1 em,
+  main,
+  main button,
+  main figure img,
+  main figure figcaption,
+  section,
+  footer nav {
+    animation: none;
+    animation-timeline: auto;
+    animation-range: normal;
+  }
+
+  main {
+    translate: none;
+  }
+
+  main figure img {
+    scale: 1;
+    opacity: 1;
+    filter: none;
+  }
+
+  main figure figcaption {
+    opacity: 1;
+  }
+
+  footer nav {
+    transform: none;
+    rotate: none;
+  }
+
+  section:has(img:hover) {
+    transform: none;
+    filter: none;
+  }
+
+  section:has(img:hover) figcaption {
+    transform: none;
+    letter-spacing: 0.07em;
+  }
+
+  footer {
+    margin-left: 5em;
+  }
+
+  footer button {
+    transition: 0.2s;
+    background: transparent;
+    color: white;
+  }
+
+  footer button:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+  }
+
+  #cookieModal button:hover {
+    transform: none;
+    scale: 1;
+  }
+
+  body {
+    transition: 0.3s;
+    color: white;
+    background: black;
+  }
+
+  body > a:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+  }
+
+  h1 em {
+    margin-bottom: 3em;
+    text-shadow:
+      0 120px 3px rgb(228, 241, 196),
+      0 240px 3px rgb(79, 153, 98),
+      0 360px 3px rgb(216, 216, 101),
+      0 480px 3px rgb(62, 62, 167),
+      0 600px 3px rgb(231, 81, 26);
+  }
+
+  figcaption,
+  img {
+    opacity: 1;
+  }
+
+  main section:nth-of-type(1) button {
+    text-shadow: 5px 5px 0 rgb(19, 224, 29);
+  }
+
+  main section:nth-of-type(2) button {
+    text-shadow: 5px 5px 0 rgb(185, 86, 43);
+  }
+
+  main section:nth-of-type(3) button {
+    text-shadow: 5px 5px 0 rgb(35, 154, 205);
+  }
+
+  main section:nth-of-type(4) button {
+    text-shadow: 5px 5px 0 rgb(235, 52, 20);
+  }
+
+  main section:nth-of-type(5) button {
+    text-shadow: 5px 5px 0 rgb(158, 80, 58);
+  }
+
+  main section:nth-of-type(6) button {
+    text-shadow: 5px 5px 0 rgb(59, 164, 194);
+  }
+
+  main section:nth-of-type(7) button {
+    text-shadow: 5px 5px 0 rgb(245, 114, 6);
+
+    animation: none;
+    animation-timeline: auto;
+    animation-range: normal;
+  }
+
+  #cookieModal button {
+    font-family: seraphs;
+  }
+
+  footer span {
+    font-family: seraphs;
+  }
+
+  body > a {
+    font-family: seraphs;
+  }
+}
+
+/* MARK: deny mode */
+
+body.deny-mode {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none;
+    animation-timeline: auto;
+    transition: none;
+  }
+
+  h2 {
+    transform: scaleY(2);
+  }
+
+  h1 em,
+  main,
+  main button,
+  main figure img,
+  main figure figcaption,
+  section,
+  footer nav {
+    animation: none;
+    animation-timeline: auto;
+    animation-range: normal;
+  }
+
+  main {
+    translate: none;
+  }
+
+  main figure img {
+    scale: 1;
+    opacity: 1;
+    filter: grayscale(1);
+  }
+
+  main figure figcaption {
+    opacity: 1;
+    transform: scaleY(4);
+  }
+
+  footer nav {
+    transform: none;
+    rotate: none;
+  }
+
+  section:has(img:hover) {
+    transform: none;
+  }
+
+  section:has(img:hover) figcaption {
+    transform: none;
+  }
+
+  footer {
+    margin-left: 5em;
+  }
+  footer button {
+    transition: none;
+    background: transparent;
+    color: white;
+  }
+
+  footer button:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+  }
+
+  #cookieModal button:hover {
+    transform: none;
+    scale: 1.2;
+  }
+
+  body {
+    transition: none;
+    color: white;
+    background: black;
+  }
+
+  body > a:hover {
+    background-color: white;
+    color: black;
+    border-color: white;
+  }
+
+  h1 em {
+    margin-bottom: 3em;
+    text-shadow:
+      0 120px 3px rgb(228, 241, 196),
+      0 240px 3px rgb(79, 153, 98),
+      0 360px 3px rgb(216, 216, 101),
+      0 480px 3px rgb(62, 62, 167),
+      0 600px 3px rgb(231, 81, 26);
+  }
+
+  figcaption,
+  img {
+    opacity: 1;
+  }
+
+  main section:nth-of-type(1) button {
+    text-shadow: 5px 5px 0 rgb(19, 224, 29);
+  }
+
+  main section:nth-of-type(2) button {
+    text-shadow: 5px 5px 0 rgb(185, 86, 43);
+  }
+
+  main section:nth-of-type(3) button {
+    text-shadow: 5px 5px 0 rgb(35, 154, 205);
+  }
+
+  main section:nth-of-type(4) button {
+    text-shadow: 5px 5px 0 rgb(235, 52, 20);
+  }
+
+  main section:nth-of-type(5) button {
+    text-shadow: 5px 5px 0 rgb(158, 80, 58);
+  }
+
+  main section:nth-of-type(6) button {
+    text-shadow: 5px 5px 0 rgb(59, 164, 194);
+  }
+
+  main section:nth-of-type(7) button {
+    text-shadow: 5px 5px 0 rgb(245, 114, 6);
+
+    animation: none;
+  }
+
+  #cookieModal button {
+    font-family: seraphs;
+  }
+
+  body > a {
+    font-family: seraphs;
+    margin-top: 0em;
+  }
+}
